@@ -1,18 +1,16 @@
 
-Vaatimusmäärittely
+VaatimusmÃ¤Ã¤rittely
 ===============
 
-**Käyttäjät**
+**KÃ¤yttÃ¤jÃ¤t**
 
 - Varaaja
 
 **Alustava Product Backlog**
 
-Pidän backlogia yllä jatkuvasti, joten user storeja saattaa tulla lisää ja joitakin poistua.
+PidÃ¤n backlogia yllÃ¤ jatkuvasti, joten user storeja saattaa tulla lisÃ¤Ã¤ ja joitakin poistua.
 
-- Varaajana haluan lisätä uusia varauksia järjestelmään saadakseni halutun tilan käyttööni tiettynä ajankohtana.
-- Varaajana haluan esikatsella tekemiäni varauksia, jotta pysyn ajantasalla tekemistäni varauksista.
-- Varaajana haluan perua tekemäni varauksen, jotta joku toinen pystyy varaamaan tilan käyttöönsä.
-- Varaajana haluan muokata tehdyn varauksen tietoja pitääkseni ne ajantasalla.
-
-**Tehdyt työtunnit**
+- Varaajana haluan lisÃ¤tÃ¤ uusia varauksia jÃ¤rjestelmÃ¤Ã¤n saadakseni halutun tilan kÃ¤yttÃ¶Ã¶ni tiettynÃ¤ ajankohtana.
+- Varaajana haluan esikatsella tekemiÃ¤ni varauksia, jotta pysyn ajantasalla tekemistÃ¤ni varauksista.
+- Varaajana haluan perua tekemÃ¤ni varauksen, jotta joku toinen pystyy varaamaan tilan kÃ¤yttÃ¶Ã¶nsÃ¤.
+- Varaajana haluan muokata tehdyn varauksen tietoja pitÃ¤Ã¤kseni ne ajantasalla.
