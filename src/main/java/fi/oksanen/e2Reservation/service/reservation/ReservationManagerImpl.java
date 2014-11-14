@@ -1,11 +1,11 @@
 
-package fi.oksanen.e2Reservation.service;
+package fi.oksanen.e2Reservation.service.reservation;
 
 import fi.oksanen.e2Reservation.domain.Reservation;
 import fi.oksanen.e2Reservation.repository.ReservationRepository;
 import fi.oksanen.e2Reservation.service.exception.AlreadyDeletedException;
 import fi.oksanen.e2Reservation.service.exception.AlreadyExistsException;
-import fi.oksanen.e2Reservation.service.exception.DoesNotExistException;
+import fi.oksanen.e2Reservation.service.exception.DoesNotFoundException;
 import java.util.List;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,8 +31,16 @@ public class ReservationManagerImpl implements ReservationManager {
   }
 
   @Override
-  public Reservation findById( Long id ) {
-    return this.reservationRepository.findOne( id );
+  public Reservation findById( Long id ) throws DoesNotFoundException {
+    
+    Reservation r = this.reservationRepository.findOne( id );
+    
+    if ( r == null || r.isRemoved() ) {
+      throw new DoesNotFoundException( "Reservation does not found!" );
+    }
+    
+    return r;
+    
   }
 
   @Override
@@ -49,10 +57,10 @@ public class ReservationManagerImpl implements ReservationManager {
 
   @Override
   @Transactional
-  public void updateReservation( Reservation reservation ) throws DoesNotExistException {
+  public void updateReservation( Reservation reservation ) throws DoesNotFoundException {
     
     if ( reservation.isNew() ) {
-      throw new DoesNotExistException( "Try to update reservation, which does not exist!" );
+      throw new DoesNotFoundException( "Try to update reservation, which does not exist!" );
     }
     
     this.reservationRepository.save( reservation );

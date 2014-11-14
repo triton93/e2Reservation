@@ -71,6 +71,16 @@
             <scope>test</scope>
         </dependency>
         
+        <!--<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+	</dependency>
+        
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-taglibs</artifactId>
+        </dependency>-->
+        
     </dependencies>
     
     <build>
@@ -90,10 +100,12 @@
                 <version>0.30</version>
                 <configuration>
                     <targetClasses>
-                        <param>fi.oksanen.e2Reservation.service.*</param>
+                        <param>fi.oksanen.e2Reservation.service.reservation.*</param>
+                        <param>fi.oksanen.e2Reservation.controller.*</param>
                     </targetClasses>
                     <targetTests>
-                        <param>fi.oksanen.e2Reservation.service.*</param>
+                        <param>fi.oksanen.e2Reservation.service.reservation.*</param>
+                        <param>fi.oksanen.e2Reservation.controller.*</param>
                     </targetTests>
                 </configuration>
             </plugin>

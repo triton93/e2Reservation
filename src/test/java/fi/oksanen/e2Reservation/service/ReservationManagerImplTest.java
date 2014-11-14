@@ -1,6 +1,7 @@
 
 package fi.oksanen.e2Reservation.service;
 
+import fi.oksanen.e2Reservation.service.reservation.ReservationManager;
 import fi.oksanen.e2Reservation.Application;
 import fi.oksanen.e2Reservation.domain.Reservation;
 import fi.oksanen.e2Reservation.domain.Room;
@@ -10,7 +11,7 @@ import fi.oksanen.e2Reservation.repository.RoomRepository;
 import fi.oksanen.e2Reservation.repository.UserRepository;
 import fi.oksanen.e2Reservation.service.exception.AlreadyDeletedException;
 import fi.oksanen.e2Reservation.service.exception.AlreadyExistsException;
-import fi.oksanen.e2Reservation.service.exception.DoesNotExistException;
+import fi.oksanen.e2Reservation.service.exception.DoesNotFoundException;
 import java.util.List;
 import org.junit.After;
 import static org.junit.Assert.*;
@@ -131,7 +132,7 @@ public class ReservationManagerImplTest {
     
   }
   
-  @Test( expected = DoesNotExistException.class )
+  @Test( expected = DoesNotFoundException.class )
   public void testCannotUpdateReservationWhichDoesNotExist() throws Exception {
     this.manager.updateReservation( this.newInstance() ); 
   }
@@ -179,13 +180,17 @@ public class ReservationManagerImplTest {
   }
   
   @Test
-  public void testReservationFoundById() {
+  public void testReservationFoundById() throws Exception {
     
     Reservation r = this.reservationRepository.save( this.newInstance() );
     assertEquals( r, this.manager.findById( r.getId() ) ); 
   
   }
   
+  @Test( expected = DoesNotFoundException.class )
+  public void testReservationDoesNotFoundById() throws Exception {
+    this.manager.findById( 10000L );
+  }
   
   
   
